@@ -81,4 +81,4 @@ kill $SUDO_PID
 
 # Start Ansible playbook
 cd ~/ansible-macos
-ansible-playbook setup.yaml
+ansible-playbook setup.yml
