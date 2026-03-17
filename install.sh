@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Colors
 GREEN="\033[0;32m"
@@ -16,15 +17,23 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   error "This script is macOS only."
 fi
 
+# Sudo keepalive
 info "Requesting sudo access..."
 sudo -v
+while true; do sudo -v; sleep 60; done &
+SUDO_PID=$!
 
 # Install Xcode Command Line Tools
 if ! xcode-select -p &>/dev/null; then
   info "Installing Xcode Command Line Tools..."
   xcode-select --install
+  waited=0
   until xcode-select -p &>/dev/null; do
+    if (( waited >= 900 )); then
+      error "Xcode Command Line Tools installation timed out. Run the script again."
+    fi
     sleep 5
+    waited=$((waited + 5))
   done
   success "Xcode Command Line Tools installed."
 else
@@ -32,10 +41,12 @@ else
 fi
 
 # Install Homebrew
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 if ! command -v brew &>/dev/null; then
   info "Installing Homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  if [[ ! -f /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  if ! command -v brew &>/dev/null; then
     error "Homebrew installation failed."
   fi
   success "Homebrew installed."
@@ -43,9 +54,7 @@ else
   success "Homebrew already installed."
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Install ansible
+# Install Ansible
 if ! command -v ansible &>/dev/null; then
   info "Installing Ansible..."
   brew install ansible
@@ -57,11 +66,19 @@ else
   success "Ansible already installed."
 fi
 
-# Cloning Reposotory
+# Clone or update repository
 if ! [[ -d ~/ansible-macos ]]; then
-  info "Cloning repository"
+  info "Cloning repository..."
   git clone https://github.com/droczy/ansible-macos ~/ansible-macos || error "Failed to clone repository."
 else
-  info "Repository already existing, pulling new version..." || error "Failed to pull repository."
-  git -C ~/ansible-macos pull
+  info "Repository already exists, pulling latest changes..."
+  git -C ~/ansible-macos pull || error "Failed to pull repository."
 fi
+success "Ansible repository ready."
+
+# Kill sudo keepalive
+kill $SUDO_PID
+
+# Start Ansible playbook
+cd ~/ansible-macos
+# ... to be continued
