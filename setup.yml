@@ -1,0 +1,7 @@
+---
+- name: Configure host.
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - import_tasks: tasks/homebrew.yml

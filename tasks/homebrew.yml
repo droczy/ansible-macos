@@ -1,0 +1,17 @@
+---
+- name: Install Homebrew packages
+  community.general.homebrew:
+    name:
+      - neovim
+      - ripgrep
+      - fd
+      - lua-language-server
+      - python-lsp-server
+      - openjdk
+      - jdtls
+      - stow
+      - tmux
+      - wget
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+    state: present
