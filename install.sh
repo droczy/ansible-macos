@@ -57,3 +57,11 @@ else
   success "Ansible already installed."
 fi
 
+# Cloning Reposotory
+if ! [[ -d ~/ansible-macos ]]; then
+  info "Cloning repository"
+  git clone https://github.com/droczy/ansible-macos ~/ansible-macos || error "Failed to clone repository."
+else
+  info "Repository already existing, pulling new version..." || error "Failed to pull repository."
+  git -C ~/ansible-macos pull
+fi
