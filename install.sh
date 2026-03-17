@@ -35,10 +35,25 @@ fi
 if ! command -v brew &>/dev/null; then
   info "Installing Homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  if [[ -f /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  if [[ ! -f /opt/homebrew/bin/brew ]]; then
+    error "Homebrew installation failed."
   fi
   success "Homebrew installed."
 else
   success "Homebrew already installed."
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Install ansible
+if ! command -v ansible &>/dev/null; then
+  info "Installing Ansible..."
+  brew install ansible
+  if ! command -v ansible &>/dev/null; then
+    error "Ansible installation failed."
+  fi
+  success "Ansible installed."
+else
+  success "Ansible already installed."
+fi
+
