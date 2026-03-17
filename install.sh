@@ -16,6 +16,9 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   error "This script is macOS only."
 fi
 
+info "Requesting sudo access..."
+sudo -v
+
 # Install Xcode Command Line Tools
 if ! xcode-select -p &>/dev/null; then
   info "Installing Xcode Command Line Tools..."
