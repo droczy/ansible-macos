@@ -3,7 +3,7 @@
     domain: com.apple.dock
     key: tilesize
     type: int
-    value: 16
+    value: 38
 
 - name: Set Dock position to left
   community.general.osx_defaults:
@@ -43,6 +43,13 @@
 - name: Remove all apps from Dock
   ansible.builtin.command:
     cmd: defaults write com.apple.dock persistent-apps -array
+
+- name: Disable recently used apps in Dock
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
 
 - name: Restart Dock to apply changes
   ansible.builtin.command:
