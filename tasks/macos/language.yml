@@ -1,0 +1,8 @@
+---
+- name: Set system language to English
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleLanguages
+    type: array
+    value:
+      - en
