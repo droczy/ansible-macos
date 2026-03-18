@@ -1,0 +1,6 @@
+---
+- name: Install Homebrew casks
+  community.general.homebrew_cask:
+    name:
+      - font-jetbrains-mono-nerd-font
+    state: present
