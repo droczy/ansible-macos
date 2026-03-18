@@ -37,6 +37,11 @@
     name: obsidian
     state: present
 
+- name: Install synology-drive
+  community.general.homebrew_cask:
+    name: synology-drive
+    state: present
+
 - name: Install thunderbird
   community.general.homebrew_cask:
     name: thunderbird
