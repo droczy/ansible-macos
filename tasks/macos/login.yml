@@ -1,0 +1,8 @@
+---
+- name: Hide username on login screen
+  community.general.osx_defaults:
+    domain: /Library/Preferences/com.apple.loginwindow
+    key: SHOWFULLNAME
+    type: bool
+    value: true
+  become: true
