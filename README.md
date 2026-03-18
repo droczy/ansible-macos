@@ -31,6 +31,6 @@ The script will:
 
 ## What gets installed
 
-**CLI Tools:** neovim, ripgrep, fd, tmux, stow, wget, lua-language-server, python-lsp-server, openjdk, jdtls, zsh-autosuggestions, zsh-syntax-highlighting
+**CLI Tools:** neovim, ripgrep, fd, tmux, stow, wget, lua-language-server, python-lsp-server, openjdk, jdtls, zsh-autosuggestions, zsh-syntax-highlighting, wireguard-tools
 
-**Apps:** Librewolf, Obsidian, Thunderbird, Karabiner Elements, AeroSpace, Alacritty, Cryptomator, Synology Drive, JetBrains Mono Nerd Font
+**Apps:** Librewolf, Obsidian, Thunderbird, Karabiner Elements, AeroSpace, Alacritty, Cryptomator, Synology Drive, JetBrains Mono Nerd Font, Enpass
