@@ -32,7 +32,8 @@ The script will:
         ├── finder.yml         # Finder preferences
         ├── appearance.yml     # UI appearance
         ├── language.yml       # System language
-        └── wallpaper.yml      # Desktop wallpaper
+        ├── desktop.yml        # Desktop settings
+        └── login.yml          # Login screen settings
 ```
 
 ## What gets installed
@@ -51,4 +52,5 @@ The playbook also applies macOS defaults:
 - **Finder:** show hidden files, show all extensions, show path/status bars, disable extension warning, use list view by default
 - **Appearance:** enable Dark Mode and set medium sidebar icon size
 - **Language:** set system language to English
-- **Wallpaper:** set solid black wallpaper
+- **Desktop:** set solid black wallpaper and disable desktop widgets
+- **Login:** hide username list on login screen
