@@ -17,6 +17,11 @@
     name: cryptomator
     state: present
 
+- name: Install enpass
+  community.general.homebrew_cask:
+    name: enpass
+    state: present
+
 - name: Install font-jetbrains-mono-nerd-font
   community.general.homebrew_cask:
     name: font-jetbrains-mono-nerd-font
