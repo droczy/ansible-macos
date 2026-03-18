@@ -80,4 +80,4 @@ success "Ansible repository ready."
 kill $SUDO_PID
 
 # Start Ansible playbook
-ansible-playbook ~/ansible-macos/setup.yml -v
+ansible-playbook ~/ansible-macos/setup.yml -K
