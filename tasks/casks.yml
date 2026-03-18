@@ -6,4 +6,5 @@
       - librewolf
       - obsidian
       - thunderbird
+      - karabiner-elements
     state: present
