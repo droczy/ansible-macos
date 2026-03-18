@@ -1,7 +1,30 @@
 ---
+- name: Add AeroSpace tap
+  community.general.homebrew_tap:
+    name: nikitabobko/tap
+
+- name: Install alacritty
+  community.general.homebrew_cask:
+    name: alacritty
+    state: present
+
+- name: Install aerospace
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
+
+- name: Install cryptomator
+  community.general.homebrew_cask:
+    name: cryptomator
+    state: present
+
 - name: Install font-jetbrains-mono-nerd-font
   community.general.homebrew_cask:
     name: font-jetbrains-mono-nerd-font
+    state: present
+
+- name: Install karabiner-elements
+  community.general.homebrew_cask:
+    name: karabiner-elements
     state: present
 
 - name: Install librewolf
@@ -18,16 +41,3 @@
   community.general.homebrew_cask:
     name: thunderbird
     state: present
-
-- name: Install karabiner-elements
-  community.general.homebrew_cask:
-    name: karabiner-elements
-    state: present
-
-- name: Add AeroSpace tap
-  community.general.homebrew_tap:
-    name: nikitabobko/tap
-
-- name: Install aerospace
-  community.general.homebrew_cask:
-    name: nikitabobko/tap/aerospace
