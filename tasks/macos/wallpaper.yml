@@ -1,0 +1,4 @@
+---
+- name: Set black wallpaper
+  ansible.builtin.command:
+    cmd: osascript -e 'tell application "Finder" to set desktop picture to POSIX file "/System/Library/Desktop Pictures/Solid Colors/Black.png"'
