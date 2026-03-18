@@ -3,4 +3,7 @@
   community.general.homebrew_cask:
     name:
       - font-jetbrains-mono-nerd-font
+      - librewolf
+      - obsidian
+      - thunderbird
     state: present
