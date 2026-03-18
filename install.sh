@@ -1,27 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+
 # Colors
 GREEN="\033[0;32m"
 RED="\033[0;31m"
 BLUE="\033[0;34m"
 RESET="\033[0m"
 
+
 # Helper functions
 info()    { echo -e "${BLUE}[INFO]${RESET}  $1"; }
 success() { echo -e "${GREEN}[OK]${RESET}    $1"; }
 error()   { echo -e "${RED}[ERROR]${RESET} $1"; exit 1; }
+
 
 # OS check
 if [[ "$(uname -s)" != "Darwin" ]]; then
   error "This script is macOS only."
 fi
 
-# Sudo keepalive
+
+# Get sudo access
+read -s -p "Enter sudo password: " SUDO_PASS
+echo
+
 info "Requesting sudo access..."
-sudo -v
+echo "$SUDO_PASS" | sudo -S -v
+
 while true; do sudo -v; sleep 60; done &
 SUDO_PID=$!
+trap 'sudo rm -f /etc/sudoers.d/ansible-install' EXIT
+
 
 # Install Xcode Command Line Tools
 if ! xcode-select -p &>/dev/null; then
@@ -40,6 +50,7 @@ else
   success "Xcode Command Line Tools already installed."
 fi
 
+
 # Install Homebrew
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 if ! command -v brew &>/dev/null; then
@@ -54,6 +65,7 @@ else
   success "Homebrew already installed."
 fi
 
+
 # Install Ansible
 if ! command -v ansible &>/dev/null; then
   info "Installing Ansible..."
@@ -66,6 +78,7 @@ else
   success "Ansible already installed."
 fi
 
+
 # Clone or update repository
 if ! [[ -d ~/ansible-macos ]]; then
   info "Cloning repository..."
@@ -76,8 +89,7 @@ else
 fi
 success "Ansible repository ready."
 
-# Kill sudo keepalive
-kill $SUDO_PID
 
 # Start Ansible playbook
-ansible-playbook ~/ansible-macos/setup.yml -K
+echo "$USER ALL=(ALL) NOPASSWD: /usr/sbin/installer" | sudo tee /etc/sudoers.d/ansible-install > /dev/null
+ansible-playbook ~/ansible-macos/setup.yml --extra-vars "ansible_become_password=$SUDO_PASS"
