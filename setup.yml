@@ -11,5 +11,5 @@
     - import_tasks: tasks/macos/finder.yml
     - import_tasks: tasks/macos/appearance.yml
     - import_tasks: tasks/macos/language.yml
-    - import_tasks: tasks/macos/wallpaper.yml
+    - import_tasks: tasks/macos/desktop.yml
     - import_tasks: tasks/macos/login.yml
