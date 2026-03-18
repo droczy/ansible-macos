@@ -1,0 +1,4 @@
+---
+- name: Install dotfiles
+  ansible.builtin.shell:
+    cmd: curl -fsSL https://raw.githubusercontent.com/droczy/.dotfiles/main/install.sh | bash
