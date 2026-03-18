@@ -1,10 +1,33 @@
 ---
-- name: Install Homebrew casks
+- name: Install font-jetbrains-mono-nerd-font
   community.general.homebrew_cask:
-    name:
-      - font-jetbrains-mono-nerd-font
-      - librewolf
-      - obsidian
-      - thunderbird
-      - karabiner-elements
+    name: font-jetbrains-mono-nerd-font
     state: present
+
+- name: Install librewolf
+  community.general.homebrew_cask:
+    name: librewolf
+    state: present
+
+- name: Install obsidian
+  community.general.homebrew_cask:
+    name: obsidian
+    state: present
+
+- name: Install thunderbird
+  community.general.homebrew_cask:
+    name: thunderbird
+    state: present
+
+- name: Install karabiner-elements
+  community.general.homebrew_cask:
+    name: karabiner-elements
+    state: present
+
+- name: Add AeroSpace tap
+  community.general.homebrew_tap:
+    name: nikitabobko/tap
+
+- name: Install aerospace
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
