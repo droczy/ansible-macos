@@ -1,0 +1,36 @@
+# ansible-macos
+
+Automated macOS setup using Ansible.
+
+## Requirements
+
+- macOS (Apple Silicon)
+- Internet connection
+
+## Usage
+```bash
+curl -fsSL https://raw.githubusercontent.com/droczy/ansible-macos/main/install.sh -o ~/install.sh && bash ~/install.sh
+```
+
+The script will:
+1. Install Xcode Command Line Tools
+2. Install Homebrew
+3. Install Ansible
+4. Clone this repository
+5. Run the Ansible playbook
+
+## Structure
+```
+├── install.sh          # Bootstrap script
+├── setup.yml           # Ansible entry point
+└── tasks/
+    ├── homebrew.yml    # CLI tools
+    ├── casks.yml       # Applications
+    └── dotfiles.yml    # Dotfiles setup
+```
+
+## What gets installed
+
+**CLI Tools:** neovim, ripgrep, fd, tmux, stow, wget, lua-language-server, python-lsp-server, openjdk, jdtls, zsh-autosuggestions, zsh-syntax-highlighting
+
+**Apps:** Librewolf, Obsidian, Thunderbird, Karabiner Elements, AeroSpace, Alacritty, Cryptomator, Synology Drive, JetBrains Mono Nerd Font
