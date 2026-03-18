@@ -7,3 +7,4 @@
     - import_tasks: tasks/homebrew.yml
     - import_tasks: tasks/casks.yml
     - import_tasks: tasks/dotfiles.yml
+    - import_tasks: tasks/macos.yml

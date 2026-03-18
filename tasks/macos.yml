@@ -1,0 +1,49 @@
+- name: Set Dock size
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 16
+
+- name: Set Dock position to left
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: left
+
+- name: Disable Dock magnification
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: bool
+    value: false
+
+- name: Enable Dock autohide
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+
+- name: Disable Dock launch animation
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: launchanim
+    type: bool
+    value: false
+
+- name: Show only active apps in Dock
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: static-only
+    type: bool
+    value: true
+
+- name: Remove all apps from Dock
+  ansible.builtin.command:
+    cmd: defaults write com.apple.dock persistent-apps -array
+
+- name: Restart Dock to apply changes
+  ansible.builtin.command:
+    cmd: killall Dock
