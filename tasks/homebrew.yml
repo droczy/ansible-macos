@@ -12,6 +12,7 @@
       - stow
       - tmux
       - wget
+      - wireguard-tools
       - zsh-autosuggestions
       - zsh-syntax-highlighting
     state: present
