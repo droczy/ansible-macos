@@ -91,5 +91,5 @@ success "Ansible repository ready."
 
 
 # Start Ansible playbook
-echo "$USER ALL=(ALL) NOPASSWD: /usr/sbin/installer" | sudo tee /etc/sudoers.d/ansible-install > /dev/null
+echo "$USER ALL=(ALL) SETENV: NOPASSWD: /usr/sbin/installer" | sudo tee /etc/sudoers.d/ansible-install > /dev/null
 ansible-playbook ~/ansible-macos/setup.yml --extra-vars "ansible_become_password=$SUDO_PASS"
