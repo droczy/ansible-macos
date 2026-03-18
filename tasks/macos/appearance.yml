@@ -1,0 +1,21 @@
+---
+- name: Enable Dark Mode
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleInterfaceStyle
+    type: string
+    value: Dark
+
+- name: Set sidebar icon size to medium
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: NSTableViewDefaultSizeMode
+    type: int
+    value: 2
+
+- name: Set icon style to dark
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleAquaColorVariant
+    type: int
+    value: 1

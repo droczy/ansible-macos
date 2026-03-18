@@ -1,3 +1,4 @@
+---
 - name: Set Dock size
   community.general.osx_defaults:
     domain: com.apple.dock
