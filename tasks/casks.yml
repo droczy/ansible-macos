@@ -42,6 +42,11 @@
     name: obsidian
     state: present
 
+- name: Install Signal
+  community.general.homebrew_cask:
+    name: signal
+    state: present
+
 - name: Install synology-drive
   community.general.homebrew_cask:
     name: synology-drive
