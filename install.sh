@@ -96,16 +96,6 @@ ansible-playbook ~/ansible-macos/setup.yml --extra-vars "ansible_become_password
 
 success "Ansible playbook completed successfully."
 
-cat <<'EOF'
-==============================================================
-|                        SETUP SUCCESS                       |
-==============================================================
-| Status : OK                                                |
-| Result : All tasks completed                               |
-| Next   : Reboot recommended                                |
-==============================================================
-EOF
-
 osascript -e 'display notification "All tasks completed" with title "ansible-macos" subtitle "Setup success"' >/dev/null 2>&1 || true
 
 read -r -p "Restart now? [y/N]: " RESTART_CHOICE
