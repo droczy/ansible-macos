@@ -1,0 +1,5 @@
+---
+- name: Enable firewall
+  ansible.builtin.command:
+    cmd: /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+  become: true

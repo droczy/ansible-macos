@@ -1,0 +1,21 @@
+---
+- name: Set ComputerName
+  community.general.osx_defaults:
+    domain: /Library/Preferences/SystemConfiguration/preferences
+    key: ComputerName
+    type: string
+    value: overseer
+  become: true
+
+- name: Set HostName
+  ansible.builtin.hostname:
+    name: overseer
+  become: true
+
+- name: Set LocalHostName
+  community.general.osx_defaults:
+    domain: /Library/Preferences/SystemConfiguration/preferences
+    key: LocalHostName
+    type: string
+    value: overseer
+  become: true

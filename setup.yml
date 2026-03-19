@@ -13,3 +13,4 @@
     - import_tasks: tasks/macos/language.yml
     - import_tasks: tasks/macos/desktop.yml
     - import_tasks: tasks/macos/login.yml
+    - import_tasks: tasks/macos/firewall.yml
