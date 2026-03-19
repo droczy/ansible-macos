@@ -1,5 +1,5 @@
 ---
-- name: Configure host.
+- name: Configure host
   hosts: localhost
   connection: local
 
@@ -14,3 +14,4 @@
     - import_tasks: tasks/macos/desktop.yml
     - import_tasks: tasks/macos/login.yml
     - import_tasks: tasks/macos/firewall.yml
+    - import_tasks: tasks/macos/hostname.yml

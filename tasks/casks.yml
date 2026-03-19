@@ -3,16 +3,16 @@
   community.general.homebrew_tap:
     name: nikitabobko/tap
 
-- name: Install alacritty
+- name: Install Alacritty
   community.general.homebrew_cask:
     name: alacritty
     state: present
 
-- name: Install aerospace
+- name: Install AeroSpace
   community.general.homebrew_cask:
     name: nikitabobko/tap/aerospace
 
-- name: Install cryptomator
+- name: Install Cryptomator
   community.general.homebrew_cask:
     name: cryptomator
     state: present
@@ -27,27 +27,27 @@
     name: elgato-wave-link
     state: present
 
-- name: Install enpass
+- name: Install Enpass
   community.general.homebrew_cask:
     name: enpass
     state: present
 
-- name: Install font-jetbrains-mono-nerd-font
+- name: Install JetBrains Mono Nerd Font
   community.general.homebrew_cask:
     name: font-jetbrains-mono-nerd-font
     state: present
 
-- name: Install karabiner-elements
+- name: Install Karabiner-Elements
   community.general.homebrew_cask:
     name: karabiner-elements
     state: present
 
-- name: Install librewolf
+- name: Install LibreWolf
   community.general.homebrew_cask:
     name: librewolf
     state: present
 
-- name: Install obsidian
+- name: Install Obsidian
   community.general.homebrew_cask:
     name: obsidian
     state: present
@@ -57,12 +57,12 @@
     name: signal
     state: present
 
-- name: Install synology-drive
+- name: Install Synology Drive
   community.general.homebrew_cask:
     name: synology-drive
     state: present
 
-- name: Install thunderbird
+- name: Install Thunderbird
   community.general.homebrew_cask:
     name: thunderbird
     state: present

@@ -1,5 +1,5 @@
 ---
-- name: Enable Dark Mode
+- name: Enable dark mode
   community.general.osx_defaults:
     domain: NSGlobalDomain
     key: AppleInterfaceStyle
@@ -13,7 +13,7 @@
     type: int
     value: 2
 
-- name: Set icon style to dark
+- name: Set dark icon style
   community.general.osx_defaults:
     domain: NSGlobalDomain
     key: AppleAquaColorVariant
