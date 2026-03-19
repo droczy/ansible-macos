@@ -17,6 +17,16 @@
     name: cryptomator
     state: present
 
+- name: Install Discord
+  community.general.homebrew_cask:
+    name: discord
+    state: present
+
+- name: Install Elgato Wave Link
+  community.general.homebrew_cask:
+    name: elgato-wave-link
+    state: present
+
 - name: Install enpass
   community.general.homebrew_cask:
     name: enpass
