@@ -52,6 +52,11 @@
     name: obsidian
     state: present
 
+- name: Install Scroll Reverser
+  community.general.homebrew_cask:
+    name: scroll-reverser
+    state: present
+
 - name: Install Signal
   community.general.homebrew_cask:
     name: signal

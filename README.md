@@ -42,7 +42,7 @@ The script will:
 
 **CLI Tools:** neovim, ripgrep, fd, tmux, stow, wget, lua-language-server, python-lsp-server, opencode, openjdk, jdtls, zsh-autosuggestions, zsh-syntax-highlighting, wireguard-tools
 
-**Apps:** Alacritty, AeroSpace, Cryptomator, Discord, Elgato Wave Link, Enpass, JetBrains Mono Nerd Font, Karabiner-Elements, LibreWolf, Obsidian, Signal, Synology Drive, Thunderbird
+**Apps:** Alacritty, AeroSpace, Cryptomator, Discord, Elgato Wave Link, Enpass, JetBrains Mono Nerd Font, Karabiner-Elements, LibreWolf, Obsidian, Scroll Reverser, Signal, Synology Drive, Thunderbird
 
 **Homebrew tap:** `nikitabobko/tap` (for AeroSpace)
 
